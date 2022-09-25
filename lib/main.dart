@@ -44,6 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -179,6 +181,33 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+      ),
+      drawer: Drawer(
+        child: SafeArea(child: Text('どろわー')),
+      ), //ハンバーガーメニュー
+      resizeToAvoidBottomInset: true, //キーボードが表示されるときにbodyの内容が見えなくなるのを防ぐらしい
+      bottomNavigationBar: BottomNavigationBar(
+        items:[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.android),
+            label: 'アンドロイド'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.icecream),
+              label: 'アイスクリーム'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.mouse),
+              label: 'マウス'
+          ),
+        ],
+        currentIndex: selectedIndex,
+        onTap: (index) {
+          selectedIndex = index;
+          setState(() {
+
+          });
+        },
       ),
     );
   }
